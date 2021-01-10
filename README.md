@@ -1,6 +1,6 @@
 # mern-stack-template
 
-Use this template to initialize your MongoDB, Express, React, Node.js web applications basic structure and starter code.
+Use this template to initialize your MongoDB, Express, React, and Node.js web applications basic structure and starter code.
 
 <i>Work In Progress</i>
 
@@ -8,16 +8,18 @@ Use this template to initialize your MongoDB, Express, React, Node.js web applic
 
 Download MongoDB: https://www.mongodb.com/try/download/community
 <br>
-Run npm install in the <code>client</code> and <code>server</code> folders to install packages.
-
-## Current Release Details
-
-<b>Chakra UI</b> v1.0
+Run <code>npm install</code> in the <code>client</code> and <code>server</code> folders to install packages.
+<br>
+Run <code>npm start</code> in the <code>client</code> directory to start the React app at port 3000.
+<br>
+Run <code>npm start</code> in the <code>server</code> directory to start the Node server at port 4000.
 
 ### Packages Included
 
 <ul>
     <li>Chakra UI</li>
+    <li>Mongoose</li>
+    <li>Nodemon</li>
     <li>React Query</li>
 </ul>
 
@@ -39,6 +41,8 @@ Chakra UI Docs: https://chakra-ui.com/docs/getting-started
 Express 4.x API Docs: https://expressjs.com/en/4x/api.html
 <br>
 Mongoose (MongoDB) Docs: https://mongoosejs.com/docs/api.html
+<br>
+React Query Docs: https://react-query.tanstack.com/overview
 <br>
 Can I Use... - Browser support tables for HTML5, CSS3, etc: https://caniuse.com
 <br>
