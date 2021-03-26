@@ -1,7 +1,11 @@
 {
   "name": "starter-mern-stack-chakra-ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alectrify/starter-mern-stack-chakra-ui.git"
+  },
   "scripts": {
     "start": "node index.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
