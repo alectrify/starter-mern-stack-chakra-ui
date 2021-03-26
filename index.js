@@ -33,7 +33,7 @@ if (DOTENV_RESULT.error) {
 
 /* ----- Express ----- */
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 if (process.env.NODE_ENV === 'production') {
     app.set('trust proxy', 1);
 }

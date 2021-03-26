@@ -40,11 +40,8 @@ Run `npm start` in the `server` directory to start the Node server at port 4000.
 
 ### Deployment
 1. Create a MongoDB Atlas database and collection and copy your connection URI.
-2. Create a Netlify site and enable continuous deployment to your repository.
-3. Set your site's base directory to `client`.
-4. Set your site's build command to `npm install && npm run build`.
-5. Set your site's publish directory to `build`.
-6. Set environment variables for your Netlify site.
+2. Create a Heroku app and enable automatic deployment to your repository.
+3. Set environment variables for your Heroku app.
     1. MONGO_URI - MongoDB Atlas connection URI
     2. SESSION_SECRET - Express session secret
 
