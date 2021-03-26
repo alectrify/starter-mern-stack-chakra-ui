@@ -1,31 +1,18 @@
-/* ---------- PACKAGES ---------- */
-const bodyParser = require('body-parser');
+/* ---------- MODULES ---------- */
+const _ = require('lodash');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
-/* ---------- CONSTANTS ---------- */
-const app = express();
-const databaseName = 'mern-stack-template';
+/* ---------- CLASSES & INSTANCES ---------- */
 const router = express.Router();
+const User = require('../models/User');
+
+/* ---------- CONSTANTS ---------- */
 
 /* ---------- FUNCTIONS ---------- */
-function logCall(route) {
-    console.log(`API Call: ${route} at ${new Date().toUTCString()}`);
-}
 
 /* ---------- INITIALIZATION ---------- */
-/* Express */
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}))
-
-// parse application/json
-app.use(bodyParser.json())
-
-/* Mongoose */
-mongoose.connect(`mongodb://localhost:27017/${databaseName}`, {useNewUrlParser: true, useUnifiedTopology: true})
-    .catch((err) => console.log(err));
-const UserModel = require('../models/UserModel');
 
 /* ---------- ROUTES ---------- */
 router.get('/', (req, res) => {
@@ -33,19 +20,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-    logCall('GET /api/users');
-
-    UserModel.find()
+    User.find()
         .then((users) => res.json(users))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.post('/createUser', async (req, res) => {
-    logCall('POST /api/createUser');
-
     const name = req.body.name;
 
-    const user = new UserModel({
+    const user = new User({
         name
     });
 
@@ -55,17 +38,13 @@ router.post('/createUser', async (req, res) => {
 });
 
 router.get('/getUser/:id', (req, res) => {
-    logCall('GET /api/getUser');
-
-    UserModel.findById(req.params.id)
+    User.findById(req.params.id)
         .then((user) => res.json(user))
         .catch(err => res.status(400).json('Error: ' + err));
 })
 
 router.post('/updateUser/:id', (req, res) => {
-    logCall('POST /api/updateUser');
-
-    UserModel.findById(req.params.id)
+    User.findById(req.params.id)
         .then((user) => {
             user.name = req.body.name;
 
@@ -77,9 +56,7 @@ router.post('/updateUser/:id', (req, res) => {
 });
 
 router.delete('/deleteUser/:id', (req, res) => {
-    logCall('DELETE /api/deleteUser');
-
-    UserModel.findByIdAndDelete(req.params.id)
+    User.findByIdAndDelete(req.params.id)
         .then(() => res.redirect('/users'))
         .catch(err => res.status(400).json('Error: ' + err));
 });

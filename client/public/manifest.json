@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MERN Stack Template",
+  "name": "Alectrify - Chakra UI MERN Stack Template",
   "icons": [
     {
       "src": "favicon.ico",
