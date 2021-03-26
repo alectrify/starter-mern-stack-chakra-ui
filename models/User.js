@@ -48,7 +48,7 @@ userSchema.pre('save', async function (next) {
 
 /* ---------- FUNCTIONS ---------- */
 /* ----- Instance Methods ----- */
-userSchema.methods.verifyPassword = function(inputPassword, callback) {
+userSchema.methods.verifyPassword = function (inputPassword, callback) {
     return bcrypt.compare(inputPassword, this.password, callback);
 }
 

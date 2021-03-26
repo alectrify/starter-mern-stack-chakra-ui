@@ -24,6 +24,8 @@ const DOTENV_RESULT = dotenv.config();
 const MONGO_URI = process.env.MONGO_URI || `mongodb://localhost:27017/${DB_NAME}`;
 const PORT = process.env.PORT || 4000;
 
+/* ---------- FUNCTIONS ---------- */
+// const passportInit = require('./auth/init');
 
 /* ---------- INITIALIZATION ---------- */
 /* ----- Dotenv ----- */
@@ -32,8 +34,7 @@ if (DOTENV_RESULT.error) {
 }
 
 /* ----- Express ----- */
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build'))); // Serve static files from the React app
 if (process.env.NODE_ENV === 'production') {
     app.set('trust proxy', 1);
 }
@@ -98,7 +99,7 @@ passportInit();
 */
 
 /* ---------- ROUTES ---------- */
-app.use('/api', require('./routes/api.js'));
+app.use('/users', require('./routes/users'));
 
 /* ---------- LAUNCH ---------- */
 app.listen(PORT, () => {

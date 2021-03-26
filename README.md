@@ -10,33 +10,38 @@ Use this template to initialize your MongoDB, Express, React, and Node.js web ap
 * Download [MongoDB Community Server](https://www.mongodb.com/try/download/community).
 
 ### Initialization & Setup
-1. Create a `.env` file in the `server` directory to hold environment variables. ([dotenv module](https://www.npmjs.com/package/dotenv))
+1. Create a `.env` file in the root directory to hold environment variables. ([dotenv module](https://www.npmjs.com/package/dotenv))
     1. LOGGED_IN=true - log in upon server refresh for user development
     2. DEV_USER_ID=\[MongoDB _id\] - MongoDB _id of a record to automatically log in with
-2. Edit the name of your database by editing the `DB_NAME` constant in `server/index.js`.
+2. Edit the name of your database by editing the `DB_NAME` constant in `index.js`.
 3. Edit metadata information for SEO and data accuracy in:
+    * `client/public/index.html`
     * `client/public/manifest.json`
     * `client/public/robots.txt`
     * `client/public/sitemap.xml`
+    * `package.json`
     * `README.md`
-4. Run `npm install` in both the `server` and `client` directories to install packages.
+4. Run `npm install` in both the root and `client` directories to install packages.
 
 ## ⚙️ Usage/Workflow Details
 ### Development Process
 1. Ensure that your MongoDB server is running locally for database functionality.
-2. Run `nodemon` in the `server` directory while developing to automatically refresh your back-end (Node.js server) after editing.
+2. Run `nodemon` in the root directory while developing to automatically refresh your back-end (Node.js server) after editing.
 3. Run `npm start` in the `client` directory while developing to automatically refresh front-end (React app) after editing.
-4. Work on back-end by editing `server/models`, `server/routes`, and `server/index.js`.
+4. Work on back-end by editing `models`, `routes`, and `index.js`.
+5. Visit `http://localhost:3000/` (React app) to see front-end changes.
+    1. The React App uses a proxy to port 4000, so you may fetch Express routes like `/users`.
 
 ### Scripts
 Run `npm start` in the `client` directory to start the React app at port 3000.  
-Run `npm start` in the `server` directory to start the Node server at port 4000.
+Run `npm start` in the root directory to start the Node server at port 4000.
 
 ### Directory Details
+1. The `auth` directory contains Passport.js configurations. (Work In Progress)
 1. The `client/public` directory contains front-end assets and site metadata.
 2. The `client/src` directory contains React front-end.
-3. The `server/models` directory contains MongoDB models.
-4. The `server/routes` directory contains routes for endpoints and API calls.
+3. The `models` directory contains MongoDB models.
+4. The `routes` directory contains routes for endpoints and API calls.
 
 ### Deployment
 1. Create a MongoDB Atlas database and collection and copy your connection URI.
@@ -49,7 +54,7 @@ Run `npm start` in the `server` directory to start the Node server at port 4000.
 ### Main Package Versions
 * **Chakra UI** v1.1.2
 * **Express** v4.x
-* **Mongoose** v5.11.15
+* **Mongoose** v5.12.2
 
 ### Packages Included
 * @chakra-ui/react - main styling
@@ -64,7 +69,8 @@ Run `npm start` in the `server` directory to start the Node server at port 4000.
 * method-override - enabling methods for the client
 * mongoose - database functionality
 * nodemon - development quality of life
-* react-query - api fetching
+* passport - authentication
+* react-query - client-side api fetching
 * validator - formatting validation
 
 ## 📅 Future Release Plans
